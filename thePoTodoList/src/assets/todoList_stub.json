@@ -1,0 +1,13 @@
+[{
+	"title": "Initialiser le projet Todo List",
+	"done": true
+},{
+	"title": "Afficher la Todo List ainsi que le statut",
+	"done": false
+}, {
+	"title": "Dormir un peu",
+	"done": false
+}, {
+	"title": "Me faire embaucher chez Néo-Soft",
+	"done": false
+}]
