@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Store, select } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
-import stubJson from '../../assets/todoList_stub.json';
-import { Todo } from '../../model/todo';
+import { Todo } from '../model/todo';
+import { Create, Update, Delete } from '../store/actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -10,13 +12,26 @@ import { Todo } from '../../model/todo';
 })
 export class TodoListComponent implements OnInit {
 
-	public todoList: Todo[];
+  public todoList: Observable<Todo[]>;
 
-  constructor() {
+  constructor(private store: Store<Todo[]>) {
+    this.todoList = store.pipe(select('todos'));
+    console.log(this.todoList)
+  }
+
+  public add(todo: Todo) {
+    this.store.dispatch(new Create(todo));
+  }
+
+  public update(todo: Todo) {
+    this.store.dispatch(new Update(todo));
+  }
+
+  public delete(todo: Todo) {
+    this.store.dispatch(new Delete(todo));
   }
 
   ngOnInit() {
-  	this.todoList = stubJson;
   }
 
 }
