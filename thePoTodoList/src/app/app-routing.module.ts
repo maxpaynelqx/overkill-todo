@@ -7,10 +7,6 @@ const routes: Routes = [{
     path: 'list',
     component: TodoListComponent
 }, {
-    path: '',
-    pathMatch: 'full',
-    redirectTo: '/list'
-}, {
     path: '**',
     redirectTo: '/list'
 }];

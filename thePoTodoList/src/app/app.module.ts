@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { StoreModule } from '@ngrx/store';
 
 import { MatCardModule } from '@angular/material/card';
-import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,10 +17,10 @@ import { reducer } from './store/reducer';
   ],
   imports: [
     BrowserModule,
-    StoreModule.forRoot({ todo: reducer }),
+    StoreModule.forRoot({ todos: reducer }),
     AppRoutingModule,
     MatCardModule,
-    MatIconModule
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,17 +1,19 @@
-[{
-    "id": 0,
-    "title": "Initialiser le projet Todo List",
-    "done": true
-}, {
-    "id": 1,
-    "title": "Afficher la Todo List ainsi que le statut",
-    "done": false
-}, {
-    "id": 2,
-    "title": "Dormir un peu",
-    "done": false
-}, {
-    "id": 3,
-    "title": "Me faire embaucher chez Néo-Soft",
-    "done": false
-}]
+{
+	"todos": [{
+	    "id": 0,
+	    "title": "Initialiser le projet Todo List",
+	    "done": true
+	}, {
+	    "id": 1,
+	    "title": "Afficher la Todo List ainsi que le statut",
+	    "done": false
+	}, {
+	    "id": 2,
+	    "title": "Dormir un peu",
+	    "done": false
+	}, {
+	    "id": 3,
+	    "title": "Me faire embaucher chez Néo-Soft",
+	    "done": false
+	}]
+}
