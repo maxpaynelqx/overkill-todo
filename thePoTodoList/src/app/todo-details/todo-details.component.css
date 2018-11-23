@@ -1,0 +1,9 @@
+.details {
+	font-style: italic;
+	color: darkslategrey;
+}
+
+.backButton {
+	text-align: center;
+	cursor: pointer;
+}

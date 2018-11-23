@@ -1,5 +1,5 @@
 <div *ngFor="let todo of todoList | async">
-	<mat-card [class.done]="todo.done">
+	<mat-card [class.done]="todo.done" (click)="showTodo(todo)">
 		<mat-card-header>
 	    <mat-card-title>
 	    	{{todo.title}}

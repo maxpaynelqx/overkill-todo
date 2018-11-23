@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Todo } from '../model/todo';
-import { Create, Update, Delete } from '../store/actions';
-import stubJson from '../../assets/todoList_stub.json';
+import { Create, Update, Delete, Get } from '../store/actions';
 
 @Component({
   selector: 'app-todo-list',
@@ -15,18 +15,25 @@ export class TodoListComponent implements OnInit {
 
   public todoList: Observable<Todo[]>;
 
-  constructor(private store: Store<{todos: Todo[]}>) {
+  constructor(
+  	private store: Store<{todos: Todo[]}>,
+  	private router: Router
+  ) 
+  {
     this.todoList = store.select(state => state.todos);
   }
 
   ngOnInit() {
-  	stubJson.todos.forEach(todo => {
-	  	this.add(todo);
-  	})
+  	this.store.dispatch(new Get());
   }
 
   public todoDone(todo: Todo): void {
+  	todo.done = !todo.done;
   	this.update(todo);
+  }
+
+  public showTodo(todo: Todo): void {
+  	this.router.navigate(['/details/'+ todo.id]);
   }
 
   private add(todo: Todo): void {

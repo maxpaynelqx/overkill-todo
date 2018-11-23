@@ -6,6 +6,7 @@ export enum ActionTypes {
   Create = 'Create',
   Update = 'Update',
   Delete = 'Delete',
+  Get = 'Get',
 }
 
 export class Create implements Action {
@@ -23,4 +24,9 @@ export class Delete implements Action {
   constructor(public payload: Todo) {}
 }
 
-export type TodosActions = Create | Update | Delete;
+export class Get implements Action {
+  readonly type = ActionTypes.Get;
+  constructor() {}
+}
+
+export type TodosActions = Create | Update | Delete | Get;

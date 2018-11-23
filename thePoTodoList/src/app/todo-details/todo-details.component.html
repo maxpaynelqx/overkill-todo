@@ -1,0 +1,15 @@
+<mat-card [class.done]="todoSelected.done">
+  <mat-card-header (click)="editTitle()">
+    <mat-card-title>
+    	<span>{{todoSelected.title}}</span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+  	<span class="details">{{todoSelected.details}}</span>
+	 </mat-card-content>
+</mat-card>
+
+<div class="backButton" (click)="backToList()">
+	Back to List<br>
+	<mat-icon>keyboard_return</mat-icon>
+</div>

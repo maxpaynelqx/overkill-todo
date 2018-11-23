@@ -1,7 +1,8 @@
 import { ActionTypes, TodosActions } from './actions';
 import { Todo } from '../model/todo';
+import stubJson from '../../assets/todoList_stub.json';
 
-export const initialState = [];
+export const initialState: Todo[] = stubJson.todos;
 
 export function reducer(state: Todo[] = initialState, action: TodosActions) {
   switch (action.type) {
@@ -17,7 +18,9 @@ export function reducer(state: Todo[] = initialState, action: TodosActions) {
           return todo;
         }
         return Object.assign({}, todo, {
-           done: !todo.done
+           title: todo.title,
+           done: todo.done,
+           details: todo.details
         });
       });
       const index = newState.findIndex(todo => {
@@ -35,7 +38,10 @@ export function reducer(state: Todo[] = initialState, action: TodosActions) {
     case ActionTypes.Delete:
       return state.filter(todo => todo.id !== action.payload.id);
 
+    case ActionTypes.Get:
+      return state;
+
     default:
-      return ;
+      return state;
   }
 }
