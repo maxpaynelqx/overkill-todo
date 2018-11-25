@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 
 import { MatCardModule } from '@angular/material/card';
@@ -34,7 +35,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatInputModule,
     MatButtonModule,
     MatIconModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

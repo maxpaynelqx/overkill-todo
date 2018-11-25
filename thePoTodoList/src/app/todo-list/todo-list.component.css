@@ -1,7 +1,22 @@
 mat-card {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 mat-card-content {
-	text-align: center;
+  text-align: center;
+}
+
+.todo-form {
+  display: flex;
+  flex-direction: column;
+
+  padding: 16px;
+  background-color: beige;
+  width: 30vw;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 2px 1px -1px rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.form-title, .form-details {
+  width: 100%;
 }

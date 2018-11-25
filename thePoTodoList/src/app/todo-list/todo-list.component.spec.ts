@@ -1,9 +1,12 @@
 import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
 import { RouterTestingModule } from "@angular/router/testing";
+import { FormsModule } from '@angular/forms';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+
 import { StoreModule, Store } from '@ngrx/store';
 import { reducer } from '../store/reducer';
 
@@ -32,6 +35,8 @@ describe('TodoListComponent', () => {
         MatCardModule,
         MatCheckboxModule,
         MatIconModule,
+        MatFormFieldModule,
+        FormsModule,
         RouterTestingModule.withRoutes(routes)
       ],
     })
@@ -80,5 +85,36 @@ describe('TodoListComponent', () => {
     component.showTodo(todo);
     expect(navigateSpy).toHaveBeenCalledWith(['/details/12']);
   }));
+
+  it('should change creation form display status', () => {
+    let initialState = component.showNewForm;
+    component.toggleFormDisplay();
+    expect(component.showNewForm).toBe(!initialState);
+  });
+
+  it('should create todo when form is ok', () => {
+    let storeSpy = spyOn(store, 'dispatch');
+    component.newTodoItem = {
+      "id": 12,
+      "title": "Test",
+      "done": true,
+      "details": "Lorem ipsum."
+    };
+    const action = new Create(component.newTodoItem);
+    component.saveNewTodo();
+    expect(storeSpy).toHaveBeenCalledWith(action);
+  });
+
+  it('should create todo when title is not filled', () => {
+    let storeSpy = spyOn(store, 'dispatch');
+    component.newTodoItem = {
+      "id": 12,
+      "title": "",
+      "done": true,
+      "details": "Lorem ipsum."
+    };
+    component.saveNewTodo();
+    expect(storeSpy).not.toHaveBeenCalled();
+  });
 
 });

@@ -6,18 +6,18 @@ import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 export const routes: Routes = [{
-    path: 'list',
-    component: TodoListComponent
+  path: 'list',
+  component: TodoListComponent
 }, {
-	path: 'details/:id',
-	component: TodoDetailsComponent
+  path: 'details/:id',
+  component: TodoDetailsComponent
 }, { 
-	path: '',
-    redirectTo: '/list', 
-    pathMatch: 'full' 
+  path: '',
+  redirectTo: '/list', 
+  pathMatch: 'full' 
 }, { 
-	path: '**', 
-	component: PageNotFoundComponent 
+  path: '**', 
+  component: PageNotFoundComponent 
 }];
 
 @NgModule({

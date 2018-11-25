@@ -7,9 +7,13 @@ export const initialState: Todo[] = stubJson.todos;
 export function reducer(state: Todo[] = initialState, action: TodosActions) {
   switch (action.type) {
     case ActionTypes.Create:
+      let maxId = Math.max.apply(Math, state.map(function(todo) { return todo.id; }))
+      let newTodo = Object.assign({}, action.payload, {
+         id: maxId + 1
+      });
       return [
-        ...state,
-        action.payload
+        newTodo,
+        ...state
       ];
 
     case ActionTypes.Update:

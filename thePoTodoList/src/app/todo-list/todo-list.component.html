@@ -1,14 +1,45 @@
+<div class="actionButton" (click)="toggleFormDisplay()">
+  New Todo<br>
+  <mat-icon *ngIf="!showNewForm">add</mat-icon>
+  <mat-icon *ngIf="showNewForm">remove</mat-icon>
+</div>
+
+<div *ngIf="showNewForm">
+  <div class="todo-form">
+    <mat-form-field class="form-title">
+      <mat-label>Title</mat-label>
+      <input matInput
+        [(ngModel)]="newTodoItem.title"
+        name="newTodoItem.title"
+        required>
+    </mat-form-field>
+    <mat-form-field class="form-details">
+      <mat-label>Details</mat-label>
+      <textarea matInput
+        minRows="2"
+        maxRows="5"
+        [(ngModel)]="newTodoItem.details"
+        name="newTodoItem.details">
+       </textarea>
+    </mat-form-field>
+    <div class="actionButton" (click)="saveNewTodo()">
+      Create<br>
+      <mat-icon>save_alt</mat-icon>
+    </div>
+  </div>
+</div>
+
 <div *ngFor="let todo of todoList | async">
-	<mat-card [class.done]="todo.done" (click)="showTodo(todo)">
-		<mat-card-header>
-	    <mat-card-title>
-	    	{{todo.title}}
-	    </mat-card-title>
-	  </mat-card-header>
-	  <mat-card-content>
-	  	<mat-checkbox (change)="todoDone(todo)" [checked]="todo.done" [labelPosition]="'before'">
-          Done
-        </mat-checkbox>
-  	  </mat-card-content>
-	</mat-card>
+  <mat-card class="mat-card" [class.done]="todo.done">
+    <mat-card-header (click)="showTodo(todo)">
+      <mat-card-title>
+        {{todo.title}}
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-checkbox (change)="todoDone(todo)" [checked]="todo.done" [labelPosition]="'before'">
+        Done
+      </mat-checkbox>
+    </mat-card-content>
+  </mat-card>
 </div>
