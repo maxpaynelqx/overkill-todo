@@ -7,3 +7,7 @@
 	text-align: center;
 	cursor: pointer;
 }
+
+mat-card-conten {
+	text-align: justify;
+}

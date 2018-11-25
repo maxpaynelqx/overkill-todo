@@ -1,3 +1,7 @@
 mat-card {
 	cursor: pointer;
 }
+
+mat-card-content {
+	text-align: center;
+}

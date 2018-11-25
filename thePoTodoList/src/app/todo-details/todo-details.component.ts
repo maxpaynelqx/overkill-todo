@@ -4,7 +4,7 @@ import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Todo } from '../model/todo';
-import { Update, Delete, Get } from '../store/actions';
+import { Get } from '../store/actions';
 
 @Component({
   selector: 'app-todo-details',

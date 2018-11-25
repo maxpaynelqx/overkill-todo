@@ -5,7 +5,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import { TodoDetailsComponent } from './todo-details/todo-details.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
-const routes: Routes = [{
+export const routes: Routes = [{
     path: 'list',
     component: TodoListComponent
 }, {
